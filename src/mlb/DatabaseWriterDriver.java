@@ -2,6 +2,7 @@ package mlb;
 /**
  * @author Roman Yasinovskyy
  */
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -11,7 +12,7 @@ public class DatabaseWriterDriver {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         DatabaseWriter dw = new DatabaseWriter();
         String db_filename = "mlb.sqlite";
         if (args.length != 0) {

@@ -48,8 +48,12 @@ public class DatabaseReader {
         try {
             stat = this.db_connection.createStatement();
             // TODO: Write an SQL statement to retrieve a league (conference) and a division
-            String sql = "";
+            results = stat.executeQuery("SELECT DISTINCT conference, division FROM team");
             // TODO: Add all 6 combinations to the ArrayList divisions
+            while (results.next()) {
+                divisions.add(new String(results.getString("conference") + " "+ results.getString("division")));
+            }
+            results.close();
         } catch (SQLException ex) {
             Logger.getLogger(DatabaseReader.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
@@ -71,9 +75,12 @@ public class DatabaseReader {
         try {
             stat = this.db_connection.createStatement();
             // TODO: Write an SQL statement to retrieve a teams from a specific division
-            String sql = "";
+            String sql = "SELECT name FROM team WHERE conference = '" + conference + "' AND division = '" + division + "';";
             results = stat.executeQuery(sql);
             // TODO: Add all 5 teams to the ArrayList teams
+            while (results.next()) {
+                teams.add(new String(results.getString("name")));
+            }
             results.close();
         } catch (SQLException ex) {
             Logger.getLogger(DatabaseReader.class.getName()).log(Level.SEVERE, null, ex);
@@ -88,6 +95,7 @@ public class DatabaseReader {
     public Team getTeamInfo(String teamName) {
         Team team = null;
         // TODO: Retrieve team info (roster, address, and logo) from the database
+        
         return team;
     }
 }

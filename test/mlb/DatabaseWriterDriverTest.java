@@ -2,6 +2,7 @@ package mlb;
 /**
  * @author Roman Yasinovskyy
  */
+import java.io.IOException;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -34,7 +35,7 @@ public class DatabaseWriterDriverTest {
      * Test of main method, of class DatabaseWriterDriver.
      */
     @Test
-    public void testMain() {
+    public void testMain() throws IOException {
         System.out.println("main");
         String[] args = {"mlb_test.sqlite"};
         long start = System.nanoTime();

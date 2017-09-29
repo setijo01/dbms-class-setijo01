@@ -2,6 +2,7 @@ package mlb;
 /**
  * @author Roman Yasinovskyy
  */
+import java.io.IOException;
 import java.util.ArrayList;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -63,7 +64,7 @@ public class DatabaseWriterTest {
      * Test of readPlayerFromCsv method, of class DatabaseWriter.
      */
     @Test
-    public void testReadPlayerFromCsv() {
+    public void testReadPlayerFromCsv() throws IOException {
         System.out.println("readPlayerFromCsv");
         String filename = "data/mlb_players.csv";
         DatabaseWriter instance = new DatabaseWriter();
